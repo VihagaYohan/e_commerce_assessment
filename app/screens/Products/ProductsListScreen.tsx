@@ -1,18 +1,43 @@
-import React, { Component } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import React, { Component, useEffect } from "react";
+import { StyleSheet, FlatList, View } from "react-native";
 
 // components
-import { UIContainer } from "../../components/index.js";
-import { Endpoints } from "../../api/index.js";
+import { UIContainer, UILoader, UITextView } from "../../components/index.js";
 
-// api
+// widgets
+import { ItemCard } from "../../widgets/index.js";
+
+// hooks
+import { FetchData } from "../../hooks/index.js";
 
 const ProductListScreen = () => {
-  return (
-    <View>
-      <Text>Product list screen</Text>
-      <Text>{Endpoints.productList}</Text>
-    </View>
+  const { data, error, loading } = FetchData();
+
+  return loading == true ? (
+    <UILoader isLoading={loading} />
+  ) : error != null ? (
+    <UITextView text={error} />
+  ) : (
+    <UIContainer>
+      <FlatList
+        contentContainerStyle={{
+          justifyContent: "space-between",
+        }}
+        numColumns={2}
+        data={data}
+        keyExtractor={(_, index) => `item-${index + 1}`}
+        showsVerticalScrollIndicator={false}
+        renderItem={({ index, item }) => {
+          if (index == 0) {
+            console.log(item);
+          }
+          return <ItemCard index={index} item={item} />;
+        }}
+        ItemSeparatorComponent={() => {
+          return <View />;
+        }}
+      />
+    </UIContainer>
   );
 };
 

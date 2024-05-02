@@ -10,13 +10,13 @@ import { Product } from "../models/index";
 import { ProductService } from "../services/index";
 
 interface ApiResponse<T> {
-  data: T;
+  data: T[];
   error: string | null;
   loading: boolean;
 }
 
-const useFetchData = <T>(url: string = ""): ApiResponse<T> => {
-  const [data, setData] = useState<T | null>(null);
+const useFetchData = <T>(url: string = "") /* : ApiResponse<T> */ => {
+  const [data, setData] = useState<T[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -29,7 +29,8 @@ const useFetchData = <T>(url: string = ""): ApiResponse<T> => {
       setLoading(true);
       setError(null);
       const response = await ProductService.getProducts();
-      setData(response.data);
+      const { data } = response.data;
+      setData(data);
     } catch (error) {
       setError(error.message);
     } finally {
@@ -39,3 +40,5 @@ const useFetchData = <T>(url: string = ""): ApiResponse<T> => {
 
   return { data, error, loading };
 };
+
+export default useFetchData;
