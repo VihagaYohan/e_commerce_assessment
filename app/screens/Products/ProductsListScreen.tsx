@@ -7,7 +7,7 @@ import { RouteProp } from "@react-navigation/native";
 import { UIContainer, UILoader, UITextView } from "../../components/index.js";
 
 // widgets
-import { ItemCard } from "../../widgets/index.js";
+import { ItemCard, ErrorCard } from "../../widgets/index.js";
 
 // hooks
 import { FetchData } from "../../hooks/index.js";
@@ -28,7 +28,7 @@ const ProductListScreen = ({
   return loading == true ? (
     <UILoader isLoading={loading} />
   ) : error != null ? (
-    <UITextView text={error} />
+    <ErrorCard error={error} />
   ) : (
     <UIContainer>
       <FlatList
