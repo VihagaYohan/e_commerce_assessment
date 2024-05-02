@@ -1,7 +1,6 @@
 export { default as UITextView } from "./UITextView";
 export { default as UIContainer } from "./UIContainer";
 export { default as UILoader } from "./UILoader";
-export { default as UIAlert } from "./UIAlert";
 
 // buttons
 export { default as UIButton } from "./Buttons/UIButton";
