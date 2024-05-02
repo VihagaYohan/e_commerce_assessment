@@ -4,6 +4,7 @@ import MaterialCommunityIcon from "@expo/vector-icons/MaterialCommunityIcons";
 import IoniconIcon from "@expo/vector-icons/Ionicons";
 import AntDesignIcon from "@expo/vector-icons/AntDesign";
 import FontAwesomeIcon from "@expo/vector-icons/FontAwesome5";
+import MaterialIcon from "@expo/vector-icons/MaterialIcons";
 
 export default {
   EntypoIcons,
@@ -12,4 +13,5 @@ export default {
   IoniconIcon,
   AntDesignIcon,
   FontAwesomeIcon,
+  MaterialIcon,
 };

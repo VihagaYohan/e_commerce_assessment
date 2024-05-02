@@ -17,6 +17,7 @@ const itemWidth =
 interface propTypes {
   item: Product;
   index: number;
+  onPress: () => void;
 }
 
 const ItemCard = (props: propTypes) => {
@@ -30,6 +31,9 @@ const ItemCard = (props: propTypes) => {
           marginRight: props.index % 2 == 0 ? DIMENSION.PADDING : 0,
         },
       ]}
+      onPress={() => {
+        props.onPress();
+      }}
     >
       <UIImage url={props.item.mainImage} imageStyles={styles.image} />
 
