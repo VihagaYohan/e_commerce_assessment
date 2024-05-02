@@ -1,9 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 
-// screen
-import { ProductListScreen } from "./app/screens/index";
+// navigator
+import { AppNavigator } from "./app/navigation/index";
 
 export default function App() {
-  return <ProductListScreen />;
+  return (
+    <NavigationContainer>
+      <AppNavigator />
+    </NavigationContainer>
+  );
 }

@@ -6,9 +6,9 @@ import { UIContainer } from "../../components/index.js";
 
 const ProductListScreen = () => {
   return (
-    <UIContainer>
+    <View>
       <Text>Product list screen</Text>
-    </UIContainer>
+    </View>
   );
 };
 
