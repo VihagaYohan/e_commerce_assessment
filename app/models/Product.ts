@@ -12,7 +12,7 @@ interface Product {
   mainImage: string;
   price: Price;
   sizes: string[];
-  strockStatus: StockStatus;
+  stockStatus: StockStatus;
   colour: string;
   description: string;
 }

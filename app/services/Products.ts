@@ -1,15 +1,16 @@
 // api
 import { BaseAPI, Endpoints } from "../api/index";
+import axios from "axios";
 
-class ProductsService {
-  static getProducts = async () => {
-    try {
-      const response = await BaseAPI.get(Endpoints.productList);
-      return response;
-    } catch (e) {
-      throw Error(`Faile : ${e.message}`);
-    }
-  };
-}
+const getProducts = async () => {
+  try {
+    const response = await axios.get(Endpoints.productList);
+    return response;
+  } catch (e) {
+    throw Error(`Faile : ${e.message}`);
+  }
+};
 
-export default ProductsService;
+export default {
+  getProducts,
+};
