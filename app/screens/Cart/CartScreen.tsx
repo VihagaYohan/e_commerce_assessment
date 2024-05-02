@@ -53,13 +53,11 @@ const CartScreen = ({
   // increase count
   const increaseQty = (id: number) => {
     dispatch(increaseCount(id));
-    console.log(savedItems);
   };
 
   // decrease count
   const decreaseQty = (id: number) => {
     dispatch(decreaseCount(id));
-    console.log(savedItems);
   };
 
   // handle remove item from cart

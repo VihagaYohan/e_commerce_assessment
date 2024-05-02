@@ -14,6 +14,7 @@ import { FetchData } from "../../hooks/index.js";
 
 // navigation
 import { Routes } from "../../navigation/index.js";
+import { DIMENSION } from "../../constants/index.js";
 
 const ProductListScreen = ({
   navigation,
@@ -55,7 +56,7 @@ const ProductListScreen = ({
           );
         }}
         ItemSeparatorComponent={() => {
-          return <View />;
+          return <View style={{ marginBottom: DIMENSION.PADDING / 2 }} />;
         }}
       />
     </UIContainer>
