@@ -28,7 +28,7 @@ const Navigator = () => {
         options={{
           title: "Shopping",
           tabBarIcon: ({ color, size }) => {
-            return <IoniconIcon name="home" color={color} size={size} />;
+            return <IoniconIcon name="bag" color={color} size={size} />;
           },
         }}
       />
@@ -39,7 +39,7 @@ const Navigator = () => {
         options={{
           title: "Cart",
           tabBarIcon: ({ color, size }) => {
-            return <IoniconIcon name="home" color={color} size={size} />;
+            return <IoniconIcon name="cart" color={color} size={size} />;
           },
         }}
       />

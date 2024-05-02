@@ -7,13 +7,14 @@ import { RouteProp } from "@react-navigation/native";
 import { UIContainer, UILoader, UITextView } from "../../components/index.js";
 
 // widgets
-import { ItemCard } from "../../widgets/index.js";
+import { ItemCard, ErrorCard } from "../../widgets/index.js";
 
 // hooks
 import { FetchData } from "../../hooks/index.js";
 
 // navigation
 import { Routes } from "../../navigation/index.js";
+import { DIMENSION } from "../../constants/index.js";
 
 const ProductListScreen = ({
   navigation,
@@ -27,7 +28,7 @@ const ProductListScreen = ({
   return loading == true ? (
     <UILoader isLoading={loading} />
   ) : error != null ? (
-    <UITextView text={error} />
+    <ErrorCard error={error} />
   ) : (
     <UIContainer>
       <FlatList
@@ -39,9 +40,6 @@ const ProductListScreen = ({
         keyExtractor={(_, index) => `item-${index + 1}`}
         showsVerticalScrollIndicator={false}
         renderItem={({ index, item }) => {
-          if (index == 0) {
-            console.log(item);
-          }
           return (
             <ItemCard
               index={index}
@@ -55,7 +53,7 @@ const ProductListScreen = ({
           );
         }}
         ItemSeparatorComponent={() => {
-          return <View />;
+          return <View style={{ marginBottom: DIMENSION.PADDING / 2 }} />;
         }}
       />
     </UIContainer>

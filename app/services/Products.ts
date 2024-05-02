@@ -4,10 +4,11 @@ import axios from "axios";
 
 const getProducts = async () => {
   try {
-    const response = await axios.get(Endpoints.productList);
+    const response = await BaseAPI.get(Endpoints.productList);
     return response;
   } catch (e) {
-    throw Error(`Faile : ${e.message}`);
+    console.log(JSON.stringify(e));
+    throw Error(`Failed : ${e.message}`);
   }
 };
 

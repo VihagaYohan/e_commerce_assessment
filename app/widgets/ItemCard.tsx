@@ -5,10 +5,12 @@ import { StyleSheet, View, TouchableOpacity, Image } from "react-native";
 import { UITextView, UIImage } from "../components/index";
 
 // constants
-import { COLORS, DIMENSION } from "../constants";
+import { COLORS, DIMENSION, STYLES } from "../constants";
 
 // model
 import { Product } from "../models/index";
+
+// utils
 import { normalizeSize } from "../utils/helpers";
 
 const itemWidth =
@@ -28,8 +30,9 @@ const ItemCard = (props: propTypes) => {
       style={[
         styles.container,
         {
-          marginRight: props.index % 2 == 0 ? DIMENSION.PADDING : 0,
+          marginRight: props.index % 2 == 0 ? 15 : 0,
         },
+        STYLES.shadow,
       ]}
       onPress={() => {
         props.onPress();
