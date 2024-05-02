@@ -40,9 +40,6 @@ const ProductListScreen = ({
         keyExtractor={(_, index) => `item-${index + 1}`}
         showsVerticalScrollIndicator={false}
         renderItem={({ index, item }) => {
-          if (index == 0) {
-            console.log(item);
-          }
           return (
             <ItemCard
               index={index}

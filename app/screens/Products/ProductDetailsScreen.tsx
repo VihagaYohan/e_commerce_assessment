@@ -68,9 +68,6 @@ const ProductDetailsScreen = ({
       size: item.sizes[sizeIndex],
       qty: 1,
     };
-
-    console.log("cart item");
-    console.log(cartItem);
     dispatch(addItem(cartItem));
   };
 
