@@ -11,26 +11,7 @@ interface CartItemState {
 }
 
 const initialState: CartItemState = {
-  savedItems: [
-    {
-      id: "4",
-      imageUrl:
-        "https://s3-eu-west-1.amazonaws.com/api.themeshplatform.com/media/44abed599ef04cf5b728cab676d57b5d_35857601_fr_puma_sc7.jpeg",
-      name: "PUMA Roma Basic",
-      qty: 5,
-      size: "8",
-      unitPrice: 50,
-    },
-    {
-      id: "5",
-      imageUrl:
-        "https://s3-eu-west-1.amazonaws.com/api.themeshplatform.com/media/44abed599ef04cf5b728cab676d57b5d_35857601_fr_puma_sc7.jpeg",
-      name: "PUMA Roma Basic",
-      qty: 5,
-      size: "8",
-      unitPrice: 50,
-    },
-  ],
+  savedItems: [],
   total: 0,
 };
 
