@@ -2,11 +2,11 @@ import { configureStore } from "@reduxjs/toolkit";
 import { ReturnKeyType } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import type { TypedUseSelectorHook } from "react-redux";
-import newsSlice from "./slice/newsSlice";
+import productSlice from "./slice/productSlice";
 
 const Store = configureStore({
   reducer: {
-    savedNews: newsSlice,
+    cart: productSlice,
   },
 });
 

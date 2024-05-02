@@ -31,6 +31,13 @@ import { HELPERS } from "../../utils/index";
 // enum
 import { StockStatus } from "../../enums/Index";
 
+// redux
+import { useAppDispatch } from "../../store/store";
+import { addItem } from "../../store/slice/productSlice";
+
+// models
+import { CartItem } from "../../models/index";
+
 const { MaterialIcon } = ICONS;
 
 const ProductDetailsScreen = ({
@@ -43,12 +50,29 @@ const ProductDetailsScreen = ({
   const { item } = route.params;
   const productPrice = `${item.price.currency} ${item.price.amount}`;
   const [sizeIndex, setSizeIndex] = useState<number>(0);
+  const dispatch = useAppDispatch();
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
     });
   });
+
+  // handle add item to cart
+  const handleAddToCart = () => {
+    let cartItem: CartItem = {
+      id: item.id,
+      imageUrl: item.mainImage,
+      name: item.name,
+      unitPrice: Number(item.price.amount),
+      size: item.sizes[sizeIndex],
+      qty: 1,
+    };
+
+    console.log("cart item");
+    console.log(cartItem);
+    dispatch(addItem(cartItem));
+  };
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -150,29 +174,12 @@ const ProductDetailsScreen = ({
         </ScrollView>
       </View>
 
-      <View
-        style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          padding: 10,
-          flexDirection: "row",
-          alignItems: "center",
-        }}
-      >
-        <UITextView
-          text={productPrice}
-          textStyle={{
-            fontSize: HELPERS.normalizeSize(40),
-            marginRight: DIMENSION.PADDING / 2,
-            fontWeight: "bold",
-          }}
-        />
+      <View style={styles.footer}>
+        <UITextView text={productPrice} textStyle={styles.unitPrice} />
 
         <UIButton
           label="Add to cart"
-          onClick={() => console.log("added")}
+          onClick={() => handleAddToCart()}
           buttonTextStyle={{
             fontSize: 20,
           }}
@@ -252,6 +259,20 @@ const styles = StyleSheet.create({
     marginBottom: DIMENSION.BORDER_RADIUS,
     fontStyle: "italic",
     fontWeight: "700",
+  },
+  footer: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    padding: 10,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  unitPrice: {
+    fontSize: HELPERS.normalizeSize(40),
+    marginRight: DIMENSION.PADDING / 2,
+    fontWeight: "bold",
   },
 });
 
